@@ -30,10 +30,10 @@ def game():
     print("\n" + "="*50)
     print("📜  INSTRUCTIONS")
     #print("="*50)
-    print("\t1The computer will choose a random number (1–100).")
-    print("\t2Try to guess the number correctly.")
-    print("\t3After each guess, you'll be told if it's too HIGH or too LOW.")
-    print("\t4Difficulty gives you limited attempts (except Freemode).")
+    print("\t1. The computer will choose a random number (1–100).")
+    print("\t2. Try to guess the number correctly.")
+    print("\t3. After each guess, you'll be told if it's too HIGH or too LOW.")
+    print("\t4. Difficulty gives you limited attempts (except Freemode).")
     print("="*50)
 
     max_attempts,mode_name=mode()
@@ -47,6 +47,9 @@ def game():
     while True:
         guess=int(input("→\tChoose a number between 1-100: "))
         attempts+=1
+        if guess < 1 or guess > 100:
+            print("⚠️ Invalid input! Please enter a number between 1 and 100.")
+            continue
         if num==guess:
             print(f"🏆 You guessed the number {num} correctly!")
             print(f"📊 Attempts used: {attempts}")
