@@ -1,0 +1,76 @@
+#Number Guessing Game
+'''Hey Team Envision '''
+import random
+
+def mode():
+    print("\n" + "="*40)
+    print("🎯  CHOOSE DIFFICULTY")
+    #print("="*40)
+    print("1. 🌱 Easy       - 10 attempts")
+    print("2. 🔥 Medium     - 7 attempts")
+    print("3. 💀 Hard       - 5 attempts")
+    print("4. ♾️ Freemode   - Unlimited attempts")
+    print("="*40)
+
+
+    while True:
+        choice = input("Enter your choice (1–4): ")
+        if choice == "1":
+            return 10,"🌱 Easy"
+        elif choice == "2":
+            return 7,"🔥 Medium"
+        elif choice == "3":
+            return 5,"💀 Hard"
+        elif choice == "4":
+            return None,"♾️ Freemode"
+        else:
+            print(" Invalid choice! Please choose between 1–4.")
+
+def game():
+    print("\n" + "="*50)
+    print("📜  INSTRUCTIONS")
+    #print("="*50)
+    print("\t1The computer will choose a random number (1–100).")
+    print("\t2Try to guess the number correctly.")
+    print("\t3After each guess, you'll be told if it's too HIGH or too LOW.")
+    print("\t4Difficulty gives you limited attempts (except Freemode).")
+    print("="*50)
+
+    max_attempts,mode_name=mode()
+    num=random.randint(1,100)
+    attempts=0
+    
+    print(f"\n✨ You selected {mode_name} mode!")
+    print("🎲 I have chosen a number between 1 and 100.")
+    print("🤔 Can you guess it?\n")
+    
+    while True:
+        guess=int(input("→\tChoose a number between 1-100: "))
+        attempts+=1
+        if num==guess:
+            print(f"🏆 You guessed the number {num} correctly!")
+            print(f"📊 Attempts used: {attempts}")
+            print("="*40)
+            break
+        elif num>guess:
+            print("📉 Too Low!")
+        elif num<guess:
+            print("📈 Too High!")
+        else:
+            pass
+        if max_attempts is not None and attempts >= max_attempts:
+            print(f"💀 Out of attempts! The number was {num}.💀")
+            break
+print("\n" + "="*50)
+print("🎮 WELCOME TO THE NUMBER GUESSING GAME 🎮")
+#print("="*50)
+while True:
+    game()
+    op=input("Do You Still Want To Play?(y/n)")
+    if op.lower() != 'y':
+        print("Thanks for playing !")
+        break
+    else:
+        pass
+        
+        
